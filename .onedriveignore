@@ -1,0 +1,8 @@
+# OneDrive ignore file - prevents OneDrive from syncing these folders
+.next/
+node_modules/
+.git/
+*.log
+.env*.local
+
+

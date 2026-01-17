@@ -1,0 +1,221 @@
+@import "tailwindcss";
+
+:root {
+  color-scheme: dark;
+  --background: #000000;
+  --foreground: #ededed;
+  --brand-green: #05783a;
+  --brand-pink: #e079b7;
+
+  /* shadcn/ui CSS Variables - Dark Theme */
+  --card: #0a0a0a;
+  --card-foreground: #ededed;
+  --popover: #0a0a0a;
+  --popover-foreground: #ededed;
+  --primary: #05783a;
+  --primary-foreground: #ffffff;
+  --secondary: #e079b7;
+  --secondary-foreground: #ffffff;
+  --muted: #1a1a1a;
+  --muted-foreground: #9ca3af;
+  --accent: #1a1a1a;
+  --accent-foreground: #ededed;
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+  --border: #1a1a1a;
+  --input: #1a1a1a;
+  --ring: #05783a;
+  --radius: 0.5rem;
+
+  /* Admin panel colors - dark theme defaults */
+  --admin-bg: #111827;
+  --admin-card-bg: #1f2937;
+  --admin-border: #374151;
+  --admin-text: #f3f4f6;
+  --admin-text-muted: #9ca3af;
+  --admin-hover-bg: #374151;
+  --admin-input-bg: #1f2937;
+  --admin-input-border: #374151;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-brand-green: var(--brand-green);
+  --color-brand-pink: var(--brand-pink);
+  --font-sans: var(--font-inter);
+  --font-heading: var(--font-syne);
+}
+
+[data-theme="light"] {
+  color-scheme: light;
+  --background: #ffffff;
+  --foreground: #171717;
+
+  /* shadcn/ui CSS Variables - Light Theme */
+  --card: #ffffff;
+  --card-foreground: #171717;
+  --popover: #ffffff;
+  --popover-foreground: #171717;
+  --primary: #05783a;
+  --primary-foreground: #ffffff;
+  --secondary: #e079b7;
+  --secondary-foreground: #ffffff;
+  --muted: #f3f4f6;
+  --muted-foreground: #6b7280;
+  --accent: #f3f4f6;
+  --accent-foreground: #171717;
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+  --border: #e5e7eb;
+  --input: #e5e7eb;
+  --ring: #05783a;
+
+  /* Admin panel colors - light theme */
+  --admin-bg: #f9fafb;
+  --admin-card-bg: #ffffff;
+  --admin-border: #e5e7eb;
+  --admin-text: #111827;
+  --admin-text-muted: #6b7280;
+  --admin-hover-bg: #f3f4f6;
+  --admin-input-bg: #ffffff;
+  --admin-input-border: #d1d5db;
+}
+
+[data-theme="dark"] {
+  color-scheme: dark;
+  --background: #000000;
+  --foreground: #ededed;
+
+  /* shadcn/ui CSS Variables - Dark Theme */
+  --card: #0a0a0a;
+  --card-foreground: #ededed;
+  --popover: #0a0a0a;
+  --popover-foreground: #ededed;
+  --primary: #05783a;
+  --primary-foreground: #ffffff;
+  --secondary: #e079b7;
+  --secondary-foreground: #ffffff;
+  --muted: #1a1a1a;
+  --muted-foreground: #9ca3af;
+  --accent: #1a1a1a;
+  --accent-foreground: #ededed;
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+  --border: #1a1a1a;
+  --input: #1a1a1a;
+  --ring: #05783a;
+
+  /* Admin panel colors - dark theme */
+  --admin-bg: #111827;
+  --admin-card-bg: #1f2937;
+  --admin-border: #374151;
+  --admin-text: #f3f4f6;
+  --admin-text-muted: #9ca3af;
+  --admin-hover-bg: #374151;
+  --admin-input-bg: #1f2937;
+  --admin-input-border: #374151;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-inter), sans-serif;
+  overflow-x: hidden;
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+/* Fix scrolling in admin panel */
+[data-lenis-prevent] {
+  overflow-y: auto !important;
+}
+
+.lenis-scroll {
+  overflow-y: auto !important;
+}
+
+/* Hide scrollbar but keep scrolling functionality */
+::-webkit-scrollbar {
+  width: 6px;
+  background: transparent;
+}
+
+/* Hide scrollbar arrows */
+::-webkit-scrollbar-button {
+  display: none;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #888;
+  /* Gray thumb */
+  border-radius: 6px;
+}
+
+/* Grid Background with Vignette Effect */
+.grid-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  background-color: var(--background);
+  background-image: linear-gradient(
+      rgba(5, 120, 58, 0.15) 0.125rem,
+      transparent 0.125rem
+    ),
+    linear-gradient(
+      90deg,
+      rgba(5, 120, 58, 0.15) 0.125rem,
+      transparent 0.125rem
+    );
+  background-size: 3.75rem 3.75rem;
+  /* 60px = 3.75rem */
+  mask-image: radial-gradient(
+    ellipse 100% 100% at 50% 50%,
+    black 40%,
+    transparent 100%
+  );
+  -webkit-mask-image: radial-gradient(
+    ellipse 100% 100% at 50% 50%,
+    black 40%,
+    transparent 100%
+  );
+}
+
+.grid-background::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  /* Stronger vignette green for more clarity, over larger visible area */
+  background: radial-gradient(
+    circle at 50% 50%,
+    rgba(5, 120, 58, 0.11) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+}
+
+/* Mobile typography clamps */
+h1 {
+  font-size: clamp(2rem, 5vw, 3rem);
+  line-height: 1.1;
+}
+
+h2 {
+  font-size: clamp(1.5rem, 4.5vw, 2.4rem);
+  line-height: 1.15;
+}
+
+h3 {
+  font-size: clamp(1.2rem, 3.8vw, 1.75rem);
+  line-height: 1.2;
+}
+.spline-watermark {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: calc(0) !important;
+}
