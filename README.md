@@ -1,8 +1,8 @@
-# FUTUREWEAR - Luxury Streetwear E-Commerce
+# PLAYBOY - Luxury Streetwear E-Commerce
 
 A high-end, Awwwards style fashion e-commerce website built with **Next.js 15**, featuring smooth scrolling, interactive 3D elements, and stunning animations.
 
-![Project Preview](https://via.placeholder.com/1200x600/000000/05783A?text=FUTUREWEAR+PREVIEW)
+![Project Preview](https://via.placeholder.com/1200x600/000000/05783A?text=PLAYBOY+PREVIEW)
 
 ## 🎨 Key Features
 
